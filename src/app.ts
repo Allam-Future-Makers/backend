@@ -12,6 +12,7 @@ import { errorHandler } from "./utils/errorHandler.js";
 import { errors } from "./config/errors.js";
 import AppError from "./models/error.js";
 import userRouter from "./routes/userRouter.js";
+import authRouter from "./routes/authRouter.js";
 
 (BigInt.prototype as any).toJSON = function () {
   return this.toString();
@@ -52,6 +53,7 @@ const setupRouters = () => {
     res.status(200).send("Everything is working great!");
   });
 
+  app.use("/auth", authRouter);
   app.use("/user", userRouter);
 };
 
