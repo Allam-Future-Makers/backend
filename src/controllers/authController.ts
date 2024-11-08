@@ -187,10 +187,11 @@ const register: RegisterController = async (req, res) => {
       verificationToken: verificationCodeHash,
       verificationRequestAt: new Date(),
       verificationExpiry: new Date(Date.now() + 1000 * 60 * 15),
+      verified: true,
     },
   });
 
-  mailService.sendVerificationEmail(newUser.email, verificationCode);
+  // mailService.sendVerificationEmail(newUser.email, verificationCode);
 
   res.status(201).json({
     success: true,
