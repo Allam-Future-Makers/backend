@@ -60,7 +60,7 @@ const login: LoginController = async (req, res) => {
   res.status(200).json({
     success: true,
     token,
-    ...userModel(user),
+    user: userModel(user),
   });
 };
 
@@ -196,7 +196,7 @@ const register: RegisterController = async (req, res) => {
   res.status(201).json({
     success: true,
     token,
-    ...userModel(newUser),
+    user: userModel(newUser),
   });
 };
 
